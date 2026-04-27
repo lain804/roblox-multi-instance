@@ -13,8 +13,6 @@ void KillAllRoblox() {
 
 	BOOL ok = Process32FirstW(hSnapshot, &pe);
 
-	DWORD returnVal = 0;
-
 	while (ok) {
 		if (wcscmp(pe.szExeFile, ROBLOX_EXECUTABLE_NAME) == 0) {
 			HANDLE hRoblox = OpenProcess(PROCESS_TERMINATE | SYNCHRONIZE, FALSE, pe.th32ProcessID);
@@ -38,5 +36,4 @@ int main() {
 	while (true) {
 		Sleep(INFINITE);
 	}
-
 }
