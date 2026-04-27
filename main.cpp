@@ -31,7 +31,17 @@ int main() {
 
 	HANDLE hMutex = CreateMutexW(NULL, TRUE, ROBLOX_MUTEX_NAME);
 
-	printf("Roblox multi instance Active, close to disable\n");
+	DWORD lastError = GetLastError();
+
+	if (!hMutex) {
+		printf("Failed to create mutex, error code: %lu\n", lastError);
+	}
+	else if (lastError == ERROR_ALREADY_EXISTS) {
+		printf("Another roblox multi instance program is active, feel free to close this window\n");
+	}
+	else {
+		printf("Roblox multi instance Active, close to disable\n");
+	}
 
 	while (true) {
 		Sleep(INFINITE);
