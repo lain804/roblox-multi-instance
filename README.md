@@ -1,6 +1,6 @@
 # roblox multi-instance tool
 
-compile and run the application to enable multiple concurrent roblox instances.
+compile or download the application from the release section and run it to enable multiple concurrent roblox instances.
 
 console window must remain open while running
 
